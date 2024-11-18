@@ -1,7 +1,3 @@
-function getWeather(response) {
- 
-}
-
 function displayResult(response) {
   let cityElement = document.querySelector(".current-city");
   let tempElement = document.querySelector("#current-temperature-value");

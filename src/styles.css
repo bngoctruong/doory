@@ -47,7 +47,7 @@ main {
 }
 .current-weather-data {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
 }
 
 .current-city {
@@ -67,15 +67,16 @@ main {
 }
 
 .current-temperature {
+  display: flex;
   font-size: 48px;
   margin-right: 35px;
 }
 
 .current-temperature-icon, #icon {
 position: relative;
-  width: 50px;
-  height: 50px;
-  top: -10px;
+  width: 68px;
+  height: 68px;
+  top: 5px;
   font-size:35px;
 }
 
@@ -86,8 +87,8 @@ position: relative;
 
 .current-temperature-unit {
   font-size: 28px;
-  position: relative;
-  top: -38px;
+  position:relative;
+  top: 10px;
 }
 
 footer {
