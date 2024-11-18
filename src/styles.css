@@ -61,9 +61,9 @@ main {
   font-weight: 400;
   line-height: 24px;
 }
-
-.current-details strong {
-  color: #f65282;
+.humidity, .wind-speed {
+    color: #f65282;
+    font-weight: bold;
 }
 
 .current-temperature {
