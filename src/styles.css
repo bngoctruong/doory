@@ -41,7 +41,10 @@ header {
   line-height: 1;
   border-radius: 5px;
 }
-
+.search-button:hover {
+    cursor: pointer;
+    background-color: #9d7eea;
+}
 main {
   padding: 30px 0;
 }
