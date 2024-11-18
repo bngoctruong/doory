@@ -4,15 +4,20 @@ function getWeather(response) {
 
 function displayResult(response) {
   let cityElement = document.querySelector(".current-city");
-  cityElement.innerHTML = response.data.city;
   let tempElement = document.querySelector("#current-temperature-value");
- tempElement.innerHTML = Math.round(response.data.temperature.current);
- let conditionElement = document.querySelector(".condition");
- conditionElement.innerHTML = response.data.condition.description;
-let humidityElement = document.querySelector(".humidity");
- humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-let windElement = document.querySelector(".wind-speed");
- windElement.innerHTML = `${response.data.wind.speed}km/h`;
+  let conditionElement = document.querySelector(".condition");
+  let humidityElement = document.querySelector(".humidity");
+  let windElement = document.querySelector(".wind-speed");
+  let iconElement = document.querySelector("#icon");
+ 
+  cityElement.innerHTML = response.data.city;
+  tempElement.innerHTML = Math.round(response.data.temperature.current);
+  conditionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `${response.data.wind.speed}km/h`;
+  iconElement.innerHTML = `<img
+                class="current-temperature-icon"
+                src="${response.data.condition.icon_url}">`; 
 }
 
 function searchCity(event) {
@@ -34,5 +39,9 @@ let days = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`];
 currentDay.innerHTML = days[now.getDay()];
 let formattedHour = now.getHours();
 let formattedMin = now.getMinutes();
+if (formattedMin <10) {
+    formattedMin = `0${formattedMin}`;
+}
 currentTime.innerHTML = `${formattedHour}:${formattedMin}`;
+
 
