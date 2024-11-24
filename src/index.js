@@ -1,3 +1,15 @@
+let currentDay = document.querySelector("p .current-day");
+let currentTime = document.querySelector("p .current-time");
+let now = new Date();
+let days = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`,`Saturday`];
+currentDay.innerHTML = days[now.getDay()];
+let formattedHour = now.getHours();
+let formattedMin = now.getMinutes();
+if (formattedMin <10) {
+    formattedMin = `0${formattedMin}`;
+}
+currentTime.innerHTML = `${formattedHour}:${formattedMin}`;
+    
 function displayResult(response) {
   let cityElement = document.querySelector(".current-city");
   let tempElement = document.querySelector("#current-temperature-value");
@@ -14,33 +26,30 @@ function displayResult(response) {
   iconElement.innerHTML = `<img
                 class="current-temperature-icon"
                 src="${response.data.condition.icon_url}">`; 
+    getForecast(response.data.city);
 }
 
-function searchCity(event) {
-    event.preventDefault();
-    let inputCity = document.querySelector("#input-city");
-    let city = inputCity.value;
+function searchCity(city) {
     let apiKey = `0bc5a8155a8t1ab5b31d93473cfdo8fc`;
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayResult);
 }
+function handleInput (event){
+    event.preventDefault();
+    let inputCity = document.querySelector("#input-city");
+    searchCity(inputCity.value);
 
-let form = document.querySelector("form");
-form.addEventListener("submit", searchCity);
-
-let currentDay = document.querySelector("p .current-day");
-let currentTime = document.querySelector("p .current-time");
-let now = new Date();
-let days = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`,`Saturday`];
-currentDay.innerHTML = days[now.getDay()];
-let formattedHour = now.getHours();
-let formattedMin = now.getMinutes();
-if (formattedMin <10) {
-    formattedMin = `0${formattedMin}`;
 }
-currentTime.innerHTML = `${formattedHour}:${formattedMin}`;
+let form = document.querySelector("form");
+form.addEventListener("submit", handleInput);
 
-function displayForecast () {
+function getForecast (city){
+    let apiKey = `0bc5a8155a8t1ab5b31d93473cfdo8fc`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+}
+function displayForecast (response) {
+console.log(response.data);
 let shortdays = [`Mon`,`Tue`,`Wed`,`Thu`,`Fri`];
 let forecastContent = "";
 
