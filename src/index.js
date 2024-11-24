@@ -31,7 +31,7 @@ form.addEventListener("submit", searchCity);
 let currentDay = document.querySelector("p .current-day");
 let currentTime = document.querySelector("p .current-time");
 let now = new Date();
-let days = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`];
+let days = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`,`Saturday`];
 currentDay.innerHTML = days[now.getDay()];
 let formattedHour = now.getHours();
 let formattedMin = now.getMinutes();
@@ -40,4 +40,28 @@ if (formattedMin <10) {
 }
 currentTime.innerHTML = `${formattedHour}:${formattedMin}`;
 
+function displayForecast () {
+let shortdays = [`Mon`,`Tue`,`Wed`,`Thu`,`Fri`];
+let forecastContent = "";
 
+shortdays.forEach (function (shortday) {
+forecastContent = 
+forecastContent + `
+<div class="weather-forcast-day">
+            <div class="weather-forecast-date">
+            ${shortday}
+            </div>
+            <div class="weather-forecast-icon">
+            ⛅
+            </div>
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature"><strong>15°</strong></div>
+              <div class="weather-forecast-temperature">9°</div>
+            </div>
+          </div>
+`;
+});
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = forecastContent;
+};
+displayForecast();
