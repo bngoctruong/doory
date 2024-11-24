@@ -78,8 +78,8 @@ main {
 
 .current-temperature-icon, #icon {
 position: relative;
-  width: 68px;
-  height: 68px;
+  width: 88px;
+  height: 88px;
   top: 5px;
   font-size:35px;
 }
@@ -110,7 +110,7 @@ position: relative;
 
 .weather-forecast-icon{
   text-align: center;
-  width: 70%;
+  width: 60%;
   display: block;
   margin: 0 auto;
   line-height: 10px;
