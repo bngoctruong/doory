@@ -8,6 +8,7 @@ a {
 }
 
 .weather-app {
+  display: block; 
   background: white;
   max-width: 600px;
   margin: 60px auto;
@@ -109,10 +110,10 @@ position: relative;
 
 .weather-forecast-icon{
   text-align: center;
-  font-size: 30px;
+  width: 70%;
   display: block;
   margin: 0 auto;
-  line-height: 20px;
+  line-height: 10px;
   margin-bottom: 10px;
 }
 
@@ -122,10 +123,10 @@ position: relative;
   display: flex;
   justify-content: center;
 }
-.weather-forecast-temperature{
-  padding: 0 10px;
-}
 
+.weather-forecast-temperature{
+  padding: 0 3px;
+}
 
 footer {
   border-top: 1px solid #f9f7fe;
